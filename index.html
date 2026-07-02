@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroma & Co. | Specialty Coffee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --cream: #FDFBF7;
+            --cream-dark: #F5EFEB;
+            --espresso: #2C1B12;
+            --espresso-light: #4A3525;
+            --forest: #2E473B;
+            --forest-light: #3D5E4E;
+            --white: #FFFFFF;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--cream);
+            color: var(--espresso);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* --- CUSTOM CURSOR --- */
+        .custom-cursor {
+            width: 12px;
+            height: 12px;
+            background-color: var(--espresso);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-cursor span {
+            font-family: var(--font-sans);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--cream);
+            opacity: 0;
+            text-transform: uppercase;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+
+        /* Hover State for Cursor */
+        .custom-cursor.hovered {
+            width: 60px;
+            height: 60px;
+            background-color: var(--white); /* Will invert beautifully via blend-mode */
+        }
+
+        .custom-cursor.hovered span {
+            opacity: 1;
+        }
+
+        /* Hide default cursor globally on desktop */
+        @media (pointer: fine) {
+            body, a, button, .card {
+                cursor: none;
+            }
+        }
+
+        /* Disable custom cursor entirely on mobile/tablet */
+        @media (max-width: 1024px) {
+            .custom-cursor {
+                display: none !important;
+            }
+        }
+
+        /* --- UTILITIES & COMPONENTS --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--espresso);
+            color: var(--cream);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--forest);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--espresso);
+            color: var(--espresso);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--espresso);
+            color: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background-color: rgba(253, 251, 247, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(44, 27, 18, 0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--espresso);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--espresso-light);
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--forest);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background-color: var(--cream-dark);
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2sfr 1fr;
+            align-items: center;
+            gap: 4rem;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 550px;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            line-height: 1.15;
+            color: var(--espresso);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--espresso-light);
+            margin-bottom: 2rem;
+        }
+
+        .hero-image-container {
+            position: relative;
+            height: 500px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(44, 27, 18, 0.08);
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- FEATURED PRODUCTS --- */
+        .products {
+            padding: 8rem 0;
+            background-color: var(--cream);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(44, 27, 18, 0.03);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(44, 27, 18, 0.05);
+        }
+
+        .card-img-holder {
+            width: 100%;
+            height: 250px;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            background-color: var(--cream-dark);
+        }
+
+        .card-img-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-img-holder img {
+            transform: scale(1.05);
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-meta h3 {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            color: var(--espresso);
+        }
+
+        .price {
+            font-weight: 600;
+            color: var(--forest);
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #706055;
+            line-height: 1.4;
+        }
+
+        /* --- ABOUT & PHILOSOPHY --- */
+        .about {
+            padding: 8rem 0;
+            background-color: var(--forest);
+            color: var(--cream);
+            text-align: center;
+            position: relative;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-tag {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--cream-dark);
+            opacity: 0.8;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .about h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            .hero-content {
+                margin: 0 auto;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero {
+                padding-top: 60px;
+                padding-bottom: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Keep it ultra-clean for presentation simplicity */
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .about h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="custom-cursor" id="cursor">
+        <span>View</span>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo hover-target">Aroma & Co.</a>
+                <ul class="nav-links">
+                    <li><a href="#menu" class="hover-target">Menu</a></li>
+                    <li><a href="#story" class="hover-target">Our Story</a></li>
+                    <li><a href="#locations" class="hover-target">Locations</a></li>
+                </ul>
+                <a href="#menu" class="btn btn-outline hover-target">Order Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Crafted Daily, Brewed Passionately</h1>
+                    <p>Step away from the noise. Immerse yourself in a meticulously balanced specialty coffee experience sourced directly from ethical, micro-lot farmers.</p>
+                    <a href="#menu" class="btn btn-primary hover-target">Explore Menu</a>
+                </div>
+                <div class="hero-image-container card hover-target">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1200&auto=format&fit=crop" alt="Pouring latte art at Aroma & Co." class="hero-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="menu">
+        <div class="container">
+            <h2 class="section-title">The Daily Ritual</h2>
+            <div class="product-grid">
+                
+                <div class="card hover-target">
+                    <div class="card-img-holder">
+                        <img src="https://images.unsplash.com/photo-1510972527409-cac236ee5118?q=80&w=600&auto=format&fit=crop" alt="Espresso">
+                    </div>
+                    <div class="card-meta">
+                        <h3>Cortado</h3>
+                        <span class="price">$4.50</span>
+                    </div>
+                    <p>Equal parts double shot espresso and warm, silky micro-foamed milk.</p>
+                </div>
+
+                <div class="card hover-target">
+                    <div class="card-img-holder">
+                        <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=600&auto=format&fit=crop" alt="Matcha Latte">
+                    </div>
+                    <div class="card-meta">
+                        <h3>Matcha Latte</h3>
+                        <span class="price">$5.50</span>
+                    </div>
+                    <p>Ceremonial grade Uji matcha whisked smoothly with organic oat milk.</p>
+                </div>
+
+                <div class="card hover-target">
+                    <div class="card-img-holder">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop" alt="Croissant">
+                    </div>
+                    <div class="card-meta">
+                        <h3>Almond Croissant</h3>
+                        <span class="price">$4.75</span>
+                    </div>
+                    <p>House-baked, flaky layers filled with frangipane cream and toasted almonds.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="story">
+        <div class="container">
+            <div class="about-content">
+                <span class="about-tag">Our Philosophy</span>
+                <h2>Rooted in Traceability, Driven by Flavor</h2>
+                <p>We believe great coffee changes your trajectory. That's why 100% of our beans are single-origin, roasted locally in small batches, and sourced through transparent direct-trade partnerships that pay farmers substantially above fair-trade baselines.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        
+        // Mouse coordinates
+        let mouseX = 0;
+        let mouseY = 0;
+        
+        // Rendered cursor coordinates (with lag)
+        let cursorX = 0;
+        let cursorY = 0;
+        
+        // Interpolation/Inertia factor (0.1 = slower/smoother, 1 = instant)
+        const speed = 0.12;
+
+        // Tracks mouse movement
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Frame rendering loop for fluid lag calculation
+        function animateCursor() {
+            // Formula for inertia/spring effect: Current + (Target - Current) * Speed
+            cursorX += (mouseX - cursorX) * speed;
+            cursorY += (mouseY - cursorY) * speed;
+            
+            cursor.style.left = `${cursorX}px`;
+            cursor.style.top = `${cursorY}px`;
+            
+            requestAnimationFrame(animateCursor);
+        }
+        requestAnimationFrame(animateCursor);
+
+        // Hover expansions
+        const targets = document.querySelectorAll('.hover-target');
+        
+        targets.forEach(target => {
+            target.addEventListener('mouseenter', () => {
+                cursor.classList.add('hovered');
+            });
+            
+            target.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hovered');
+            });
+        });
+    </script>
+</body>
+</html>
