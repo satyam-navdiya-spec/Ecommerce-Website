@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Melt | Real Food. Real Fast.</title>
+    <style>
+        /* --- CSS Reset & Variables --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        :root {
+            --primary: #FF3838;
+            --secondary: #FFB300;
+            --dark: #1E1E24;
+            --light: #F7F7F9;
+            --white: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        header {
+            background-color: var(--dark);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .logo span {
+            color: var(--white);
+        }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--secondary);
+        }
+        .cta-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        .cta-btn:hover {
+            background-color: #e02424;
+            transform: scale(1.05);
+            color: var(--white);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .hero h1 span {
+            color: var(--secondary);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        .hero-btns .cta-btn {
+            font-size: 1.1rem;
+            padding: 0.8rem 2rem;
+            margin: 0 0.5rem;
+        }
+        .hero-btns .secondary-btn {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        .hero-btns .secondary-btn:hover {
+            background-color: #e5a100;
+            color: var(--dark);
+        }
+
+        /* --- Promo Banner --- */
+        .promo-banner {
+            background-color: var(--secondary);
+            color: var(--dark);
+            text-align: center;
+            padding: 0.7rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* --- Sections Universal --- */
+        section {
+            padding: 4rem 5%;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- Menu Section --- */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .menu-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+        .menu-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .menu-info {
+            padding: 1.5rem;
+        }
+        .menu-title-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .menu-title-price h3 {
+            font-size: 1.25rem;
+        }
+        .price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .menu-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Features Section --- */
+        .features {
+            background-color: var(--dark);
+            color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+            gap: 2rem;
+        }
+        .feature-box {
+            flex: 1 1 250px;
+            padding: 1rem;
+        }
+        .feature-box h3 {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* --- App Callout --- */
+        .app-section {
+            background-color: var(--white);
+            text-align: center;
+        }
+        .app-box {
+            background-color: var(--light);
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .app-box h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .app-box p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark);
+            color: #aaa;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            nav a {
+                margin: 0 0.5rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero-btns {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+            .hero-btns .cta-btn {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="logo">The Daily <span>Melt</span></div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#why-us">Our Story</a>
+            <a href="#app" class="cta-btn">Order Online</a>
+        </nav>
+    </header>
+
+    <!-- Promotional Ticker -->
+    <div class="promo-banner">
+        🔥 Use Code: MELT26 for a FREE Loaded Fries Upgrade on Online Orders! 🔥
+    </div>
+
+    <!-- Hero Showcase Section -->
+    <section class="hero">
+        <h1>Real Food. <span>Real Fast.</span></h1>
+        <p>Smashed fresh daily, never frozen. Get your hands on the crispiest, cheesiest melts in town.</p>
+        <div class="hero-btns">
+            <a href="#menu" class="cta-btn">View Menu</a>
+            <a href="#app" class="cta-btn secondary-btn">Download App</a>
+        </div>
+    </section>
+
+    <!-- Featured Menu Section -->
+    <section id="menu">
+        <h2 class="section-title">The Crowd Pleasers</h2>
+        <div class="menu-grid">
+            
+            <!-- Item 1 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=500" alt="Burger" class="menu-img">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>The Signature Melt</h3>
+                        <span class="price">$9.49</span>
+                    </div>
+                    <p>Double smashed brisket patty, triple cheddar, caramelized onions, garlic aioli on thick Texas toast.</p>
+                    <a href="#app" class="cta-btn" style="display:inline-block; font-size:0.85rem; padding: 0.5rem 1rem;">Add to Order</a>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=500" alt="Fried Chicken" class="menu-img">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Nashville Heat</h3>
+                        <span class="price">$8.99</span>
+                    </div>
+                    <p>Spiced buttermilk fried chicken, tangy cabbage slaw, house comeback sauce, and pickles.</p>
+                    <a href="#app" class="cta-btn" style="display:inline-block; font-size:0.85rem; padding: 0.5rem 1rem;">Add to Order</a>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=500" alt="Fries" class="menu-img">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Truffle Parm Fries</h3>
+                        <span class="price">$4.99</span>
+                    </div>
+                    <p>Thick-cut skin-on golden fries tossed in white truffle oil, fresh rosemary, and aged parmesan cheese.</p>
+                    <a href="#app" class="cta-btn" style="display:inline-block; font-size:0.85rem; padding: 0.5rem 1rem;">Add to Order</a>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=500" alt="Milkshake" class="menu-img">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Salted Caramel Shake</h3>
+                        <span class="price">$5.25</span>
+                    </div>
+                    <p>House-spun vanilla bean ice cream, artisanal sea salt caramel, topped with a warm mini donut.</p>
+                    <a href="#app" class="cta-btn" style="display:inline-block; font-size:0.85rem; padding: 0.5rem 1rem;">Add to Order</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Value Propositions Section -->
+    <section id="why-us" class="features">
+        <div class="feature-box">
+            <h3>🥩 100% Fresh Beef</h3>
+            <p>Our custom brisket blends are ground fresh daily. No freezers, no preservatives, no exceptions.</p>
+        </div>
+        <div class="feature-box">
+            <h3>⚡ Ready in 7 Mins</h3>
+            <p>We guarantee your pickup order will be hot, bagged, and ready exactly 7 minutes after you hit submit.</p>
+        </div>
+        <div class="feature-box">
+            <h3>🕒 Open Until 3 AM</h3>
+            <p>Whether it's a lunch rush or late-night gaming cravings, we're awake and flipping patties for you.</p>
+        </div>
+    </section>
+
+    <!-- App / Perks Callout -->
+    <section id="app" class="app-section">
+        <div class="app-box">
+            <h2>Unlock the Secret Menu 📱</h2>
+            <p>Join the <strong>Melt VIP Club</strong> app today to unlock exclusive menu tiers, track delivery real-time, and get a free order of fries on your first purchase.</p>
+            <a href="#" class="cta-btn" style="background-color: var(--dark); margin-right: 0.5rem;">App Store</a>
+            <a href="#" class="cta-btn">Google Play</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 The Daily Melt Co. All Rights Reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Privacy Policy | Terms of Service | Contact Us | Franchise Info</p>
+    </footer>
+
+</body>
+</html>
