@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Bites | Fast Food Stall</title>
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #feca57;
+            --dark: #222f3e;
+            --light: #f8f9fa;
+            --gray: #8395a7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn-main {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-main:hover {
+            background-color: #ee5253;
+            transform: translateY(-2px);
+        }
+
+        /* Menu Section */
+        .menu-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 1.5rem;
+        }
+
+        .menu-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .menu-price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .menu-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-add {
+            width: 100%;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.6rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-add:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .info-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-box h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .info-box p {
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .nav-links { display: none; } /* Simplified for mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Street<span>Bites</span></a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">Our Stall</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Hot, Fresh & Fast</h1>
+        <p>Serving up the city's favorite burgers, dynamic wraps, and legendary loaded sides right from the grill.</p>
+        <a href="#menu" class="btn-main">View Full Menu</a>
+    </header>
+
+    <main class="menu-container" id="menu">
+        <h2 class="section-title">Popular Items</h2>
+        
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Cheeseburger" class="menu-img">
+                <div class="menu-info">
+                    <div class="menu-meta">
+                        <span class="menu-title">Classic Smash Burger</span>
+                        <span class="menu-price">$7.99</span>
+                    </div>
+                    <p class="menu-desc">Smashed beef patty, American cheese, house pickles, and secret sauce on a toasted brioche bun.</p>
+                    <button class="btn-add">Add to Order</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1626700051175-6518c4793f4f?auto=format&fit=crop&w=500&q=80" alt="Chicken Tenders" class="menu-img">
+                <div class="menu-info">
+                    <div class="menu-meta">
+                        <span class="menu-title">Crispy Tendies</span>
+                        <span class="menu-price">$6.49</span>
+                    </div>
+                    <p class="menu-desc">Four hand-battered crispy chicken tenders served with a choice of honey mustard or BBQ sauce.</p>
+                    <button class="btn-add">Add to Order</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80" alt="Loaded Fries" class="menu-img">
+                <div class="menu-info">
+                    <div class="menu-meta">
+                        <span class="menu-title">Neon Loaded Fries</span>
+                        <span class="menu-price">$5.29</span>
+                    </div>
+                    <p class="menu-desc">Golden fries topped with hot cheese sauce, grilled onions, and a drizzle of spicy mayo.</p>
+                    <button class="btn-add">Add to Order</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80" alt="Donuts" class="menu-img">
+                <div class="menu-info">
+                    <div class="menu-meta">
+                        <span class="menu-title">Cinnamon Mini Holes</span>
+                        <span class="menu-price">$3.99</span>
+                    </div>
+                    <p class="menu-desc">A basket of warm, bite-sized fried dough tossed heavily in fresh cinnamon sugar.</p>
+                    <button class="btn-add">Add to Order</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="info-section" id="about">
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>📍 Find Us</h3>
+                <p>Stall #4, Central Food Market Walkway</p>
+            </div>
+            <div class="info-box">
+                <h3>🕒 Opening Hours</h3>
+                <p>Everyday: 11:30 AM — 11:00 PM</p>
+            </div>
+            <div class="info-box">
+                <h3>⚡ Fast Track</h3>
+                <p>Average pickup wait time is under 7 minutes.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Street Bites Fast Food. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
