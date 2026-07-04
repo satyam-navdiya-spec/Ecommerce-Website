@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sizzle Shack | Smash Burgers & Loaded Fries</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #ff4757;
+            --secondary: #ffa502;
+            --dark: #2f3542;
+            --light: #f1f2f6;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #ff2e44;
+            transform: scale(1.05);
+        }
+
+        /* Menu Highlights */
+        .menu-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 20px;
+        }
+
+        .menu-info h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .menu-info p {
+            color: #747d8c;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .menu-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 18px;
+            color: var(--primary);
+        }
+
+        /* Find Us Section */
+        .info-section {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .info-box h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .info-box p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #ced6e0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e222b;
+            color: #a4b0be;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 16px; }
+            .nav-links { display: none; } /* Kept simple for raw HTML/CSS */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Sizzle<span>Shack</span></div>
+            <nav class="nav-links">
+                <a href="#menu">Menu</a>
+                <a href="#about">Our Stall</a>
+                <a href="#find-us">Find Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Hot, Fresh & Fast</h1>
+        <p>Serving up the juiciest smash burgers and crispiest loaded fries in town. Made to order, served in minutes.</p>
+        <a href="#menu" class="btn">View Our Menu</a>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">Stall Favorites</h2>
+        <div class="menu-grid">
+            
+            <!-- Item 1 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Classic Smash Burger" class="menu-img">
+                <div class="menu-info">
+                    <h3>The Classic Smash</h3>
+                    <p>Two smashed beef patties, melted American cheese, pickles, and our signature shack sauce on a toasted brioche bun.</p>
+                    <div class="menu-footer">
+                        <span class="price">$8.50</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80" alt="Loaded Cheese Fries" class="menu-img">
+                <div class="menu-info">
+                    <h3>Chili Cheese Fries</h3>
+                    <p>Crispy golden fries smothered in house-made beef chili, warm cheddar cheese sauce, and topped with fresh jalapeños.</p>
+                    <div class="menu-footer">
+                        <span class="price">$6.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=80" alt="Spicy Chicken Tenders" class="menu-img">
+                <div class="menu-info">
+                    <h3>Nashville Hot Tenders</h3>
+                    <p>Three crispy buttermilk chicken tenders tossed in our fiery hot spice blend. Served with a side of creamy ranch.</p>
+                    <div class="menu-footer">
+                        <span class="price">$7.50</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section" id="find-us">
+        <div class="info-container">
+            <div class="info-box" id="about">
+                <h3>Our Story</h3>
+                <p>We started with a simple mission: bring restaurant-quality fast food to the streets. No frills, no fuss, just fresh ingredients and high heat.</p>
+            </div>
+            <div class="info-box">
+                <h3>Location & Hours</h3>
+                <p><strong>Address:</strong> Corner of 4th & Main Street (Next to the central plaza)</p>
+                <p><strong>Tuesday - Sunday:</strong> 12:00 PM - 10:00 PM</p>
+                <p><strong>Monday:</strong> Closed for restructuring greatness</p>
+            </div>
+            <div class="info-box">
+                <h3>Quick Orders</h3>
+                <p>Skip the queue! Call or text your order ahead for fast pickup.</p>
+                <p><strong>Phone:</strong> (555) 123-4567</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 The Sizzle Shack. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
