@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteExpress | Crave It. Click It. Eat It.</title>
+    <style>
+        /* Base Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        :root {
+            --primary: #FF4757;
+            --secondary: #FFA502;
+            --dark: #2F3542;
+            --light: #F1F2F6;
+            --white: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 2rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+        .cta-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .cta-btn:hover {
+            background-color: #ff3344;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?q=80&w=1600&auto=format&fit=crop') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .hero h1 span {
+            color: var(--secondary);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        /* Promotions Section */
+        .promo-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 5%;
+        }
+        .promo-card {
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        }
+        .promo-card.dark {
+            background-color: var(--dark);
+            color: var(--white);
+        }
+        .promo-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .promo-card p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Menu Highlights */
+        .menu-section {
+            padding: 2rem 5% 5rem;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+        .card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 1.5rem;
+            text-align: left;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .card-price {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .order-item-btn {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        .order-item-btn:hover {
+            background-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #a4b0be;
+            padding: 3rem 5% 1rem;
+            text-align: center;
+        }
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+        .footer-links a {
+            color: #a4b0be;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="#" class="logo">🍔 BiteExpress</a>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">Menu</a>
+            <a href="#">Deals</a>
+            <a href="#">Contact</a>
+        </nav>
+        <a href="#" class="cta-btn">Order Now</a>
+    </header>
+
+    <!-- Hero Hero Section -->
+    <section class="hero">
+        <h1>Hotter, Faster, <span>Tastier.</span></h1>
+        <p>Satisfy your cravings with our premium selection of fresh burgers, crispy fries, and legendary shakes delivered right to your doorstep.</p>
+        <a href="#" class="cta-btn" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Explore Full Menu</a>
+    </section>
+
+    <!-- Promotional Section -->
+    <section class="promo-container">
+        <div class="promo-card">
+            <h3>Weekend Feast</h3>
+            <p>Get 20% OFF on all family bundles this Saturday & Sunday.</p>
+            <a href="#" class="cta-btn" style="background-color: var(--dark);">Claim Deal</a>
+        </div>
+        <div class="promo-card dark">
+            <h3>Free Delivery!</h3>
+            <p>First time ordering online? Use code <strong>FREEBITE</strong> at checkout.</p>
+            <a href="#" class="cta-btn">Order Online</a>
+        </div>
+    </section>
+
+    <!-- Top Sellers / Menu Highlights -->
+    <section class="menu-section">
+        <h2 class="section-title">Our Best Sellers</h2>
+        <div class="grid">
+            
+            <!-- Item 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=500&auto=format&fit=crop" alt="Classic Cheeseburger" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">Classic Bacon Smash</h3>
+                    <p class="card-price">$8.99</p>
+                    <button class="order-item-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?q=80&w=500&auto=format&fit=crop" alt="Crispy Fries" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">Loaded Peri-Peri Fries</h3>
+                    <p class="card-price">$4.49</p>
+                    <button class="order-item-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=500&auto=format&fit=crop" alt="Chicken Tenders" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">Crunchy Chicken Tenders</h3>
+                    <p class="card-price">$6.99</p>
+                    <button class="order-item-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?q=80&w=500&auto=format&fit=crop" alt="Chocolate Shake" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">Monster Fudge Shake</h3>
+                    <p class="card-price">$4.99</p>
+                    <button class="order-item-btn">Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Franchise Info</a>
+            <a href="#">Support</a>
+        </div>
+        <p>&copy; 2026 BiteExpress Fast Food Inc. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
