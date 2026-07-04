@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CraveDash Burger Co. | Fresh. Fast. Flame-Grilled.</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-stone-50 text-stone-900 font-sans antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-white border-b border-stone-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <span class="text-3xl">🍔</span>
+                <span class="text-2xl font-black tracking-tight text-amber-600">Crave<span class="text-stone-950">Dash</span></span>
+            </div>
+            
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-stone-700">
+                <a href="#" class="hover:text-amber-600 transition">Menu</a>
+                <a href="#" class="hover:text-amber-600 transition">Deals</a>
+                <a href="#" class="hover:text-amber-600 transition">Locations</a>
+                <a href="#" class="hover:text-amber-600 transition">Rewards</a>
+            </nav>
+
+            <!-- CTA Buttons -->
+            <div class="flex items-center gap-4">
+                <a href="#" class="hidden sm:inline-block font-semibold text-stone-700 hover:text-amber-600 transition">Sign In</a>
+                <a href="#" class="bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold px-5 py-2.5 rounded-full transition shadow-md hover:shadow-lg">
+                    Order Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-amber-950 text-white overflow-hidden py-16 lg:py-24">
+        <!-- Background accents -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left: Content -->
+            <div class="space-y-6 text-center lg:text-left">
+                <span class="inline-block bg-amber-500/20 text-amber-400 font-bold text-sm tracking-wider uppercase px-3 py-1 rounded-full">
+                    🔥 New Limited Time Only
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                    The Legend is Real. <br class="hidden sm:inline">Try the <span class="text-amber-400">Smoked Brisket Stack</span>
+                </h1>
+                <p class="text-stone-300 text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    100% Angus beef, slow-smoked brisket, sharp cheddar, and crispy onion strings slathered in house BBQ sauce on a toasted brioche bun.
+                </p>
+                <div class="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-4 items-center">
+                    <a href="#" class="w-full sm:w-auto text-center bg-amber-500 hover:bg-amber-600 text-stone-950 font-black px-8 py-4 rounded-xl text-lg transition-all shadow-xl hover:-translate-y-0.5">
+                        Get It Delivered Now
+                    </a>
+                    <span class="text-stone-400 text-sm flex items-center gap-1.5">
+                        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Est. delivery: 20-30 mins
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Right: Image Placeholder / Visual Focus -->
+            <div class="relative flex justify-center">
+                <div class="w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-amber-500/20 absolute blur-3xl"></div>
+                <!-- Replace src with actual burger imagery -->
+                <div class="relative max-w-md bg-stone-900 border border-stone-800 rounded-3xl p-6 shadow-2xl flex flex-col items-center justify-center text-center group transition-transform hover:scale-[1.02] duration-300">
+                    <span class="text-[8rem] sm:text-[10rem] drop-shadow-2xl animate-bounce" style="animation-duration: 3s;">🍔</span>
+                    <div class="mt-4 bg-stone-950/80 backdrop-blur px-4 py-2 rounded-xl text-stone-400 text-xs">
+                        [ Imagine a mouth-watering, high-res photo of the Brisket Stack here ]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center max-w-xl mx-auto mb-12">
+            <h2 class="text-3xl font-black tracking-tight text-stone-950">Browse Our Favorites</h2>
+            <p class="text-stone-600 mt-2">Fresh ingredients cooked to order, delivered right to your doorstep.</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            <!-- Category Item -->
+            <a href="#" class="bg-white border border-stone-200 rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-amber-300 transition group">
+                <span class="text-5xl block mb-4 transform group-hover:scale-110 transition duration-300">🍔</span>
+                <h3 class="font-bold text-stone-950 text-lg">Burgers</h3>
+                <p class="text-stone-500 text-xs mt-1 hidden sm:block">Flame-grilled classics</p>
+            </a>
+            <!-- Category Item -->
+            <a href="#" class="bg-white border border-stone-200 rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-amber-300 transition group">
+                <span class="text-5xl block mb-4 transform group-hover:scale-110 transition duration-300">🍗</span>
+                <h3 class="font-bold text-stone-950 text-lg">Crispy Chicken</h3>
+                <p class="text-stone-500 text-xs mt-1 hidden sm:block">Tenders, wings & sandwiches</p>
+            </a>
+            <!-- Category Item -->
+            <a href="#" class="bg-white border border-stone-200 rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-amber-300 transition group">
+                <span class="text-5xl block mb-4 transform group-hover:scale-110 transition duration-300">🍟</span>
+                <h3 class="font-bold text-stone-950 text-lg">Sides & Snacks</h3>
+                <p class="text-stone-500 text-xs mt-1 hidden sm:block">World-famous golden fries</p>
+            </a>
+            <!-- Category Item -->
+            <a href="#" class="bg-white border border-stone-200 rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-amber-300 transition group">
+                <span class="text-5xl block mb-4 transform group-hover:scale-110 transition duration-300">🥤</span>
+                <h3 class="font-bold text-stone-950 text-lg">Shakes & Drinks</h3>
+                <p class="text-stone-500 text-xs mt-1 hidden sm:block">Hand-spun treats</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Deals Section -->
+    <section class="bg-stone-100 py-16 border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
+                <div>
+                    <h2 class="text-3xl font-black tracking-tight text-stone-950">Limited-Time Deals</h2>
+                    <p class="text-stone-600 mt-1">Snoop around these epic savings.</p>
+                </div>
+                <a href="#" class="mt-4 sm:mt-0 inline-flex items-center gap-1 font-bold text-amber-600 hover:text-amber-700 transition">
+                    View All Offers <span>&rarr;</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Deal Card 1 -->
+                <div class="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="bg-red-100 text-red-700 font-extrabold text-xs px-2.5 py-1 rounded-md uppercase tracking-wider">APP EXCLUSIVE</span>
+                        <h3 class="text-xl font-bold text-stone-950 mt-3">Free Delivery</h3>
+                        <p class="text-stone-600 text-sm mt-1">Get free delivery on your very first order using the app.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+                        <div class="bg-stone-100 border border-stone-300 font-mono text-sm px-3 py-1 rounded text-stone-700 font-bold">FASTCRUISE</div>
+                        <span class="text-xs text-stone-500">Min. $15 spend</span>
+                    </div>
+                </div>
+
+                <!-- Deal Card 2 -->
+                <div class="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="bg-amber-100 text-amber-800 font-extrabold text-xs px-2.5 py-1 rounded-md uppercase tracking-wider">VALUE MENU</span>
+                        <h3 class="text-xl font-bold text-stone-950 mt-3">2-for-$10 Mix & Match</h3>
+                        <p class="text-stone-600 text-sm mt-1">Choose between our classic flame-grilled single or the crispy chicken sandwich.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+                        <span class="text-stone-700 font-bold text-sm">No code needed</span>
+                        <span class="text-xs text-stone-500">In-store & App</span>
+                    </div>
+                </div>
+
+                <!-- Deal Card 3 -->
+                <div class="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="bg-indigo-100 text-indigo-700 font-extrabold text-xs px-2.5 py-1 rounded-md uppercase tracking-wider">LATE NIGHT</span>
+                        <h3 class="text-xl font-bold text-stone-950 mt-3">Late Night Happy Hour</h3>
+                        <p class="text-stone-600 text-sm mt-1">Slash 50% off all sides and milkshakes to fuel your late-night grinds.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+                        <div class="bg-stone-100 border border-stone-300 font-mono text-sm px-3 py-1 rounded text-stone-700 font-bold">NIGHTOWL</div>
+                        <span class="text-xs text-stone-500">10 PM - 2 AM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Promo Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="bg-amber-500 rounded-3xl p-8 sm:p-12 lg:p-16 text-stone-950 relative overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <!-- Content -->
+            <div class="space-y-6 relative z-10">
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight leading-tight">
+                    Join the CraveClub & <br class="hidden sm:inline">Get Free Food
+                </h2>
+                <p class="text-stone-900 font-medium text-lg leading-relaxed max-w-md">
+                    Earn 10 points for every dollar spent. Plus, skip the lines entirely with swift curbside pickup or contactless delivery options.
+                </p>
+                <div class="space-y-3 font-semibold text-stone-900">
+                    <div class="flex items-center gap-2">⚡ <p>Exclusive menu items only found on-app</p></div>
+                    <div class="flex items-center gap-2">🎁 <p>Free large fries instantly upon signup</p></div>
+                </div>
+                <!-- App Buttons -->
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <a href="#" class="bg-stone-950 text-white font-bold px-6 py-3 rounded-xl hover:bg-stone-900 transition shadow-lg flex items-center gap-2">
+                        <span>🍏</span> App Store
+                    </a>
+                    <a href="#" class="bg-stone-950 text-white font-bold px-6 py-3 rounded-xl hover:bg-stone-900 transition shadow-lg flex items-center gap-2">
+                        <span>🤖</span> Google Play
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visual App Mockup Placeholder -->
+            <div class="hidden lg:flex justify-center relative">
+                <div class="w-64 h-[450px] bg-stone-900 rounded-[2.5rem] border-8 border-stone-800 shadow-2xl p-4 flex flex-col justify-between text-white relative">
+                    <!-- Dynamic Phone Screen -->
+                    <div class="h-4 w-24 bg-stone-800 rounded-full mx-auto mb-4"></div>
+                    <div class="flex-1 flex flex-col justify-center items-center gap-2">
+                        <span class="text-4xl">📱</span>
+                        <p class="font-bold text-center text-sm px-4 text-stone-300">CraveDash Mobile App Screen</p>
+                    </div>
+                    <div class="bg-amber-500 text-stone-950 font-black text-center py-2.5 rounded-xl text-xs">
+                        REWARDS INCOMING
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-400 pt-16 pb-8 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <!-- Newsletter / Brand -->
+            <div class="md:col-span-2 space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🍔</span>
+                    <span class="text-xl font-black tracking-tight text-amber-500">Crave<span class="text-white">Dash</span></span>
+                </div>
+                <p class="text-sm max-w-sm">Sign up for our newsletter to lock down a free order of large fries and get sweet deals sent right to your inbox.</p>
+                <form class="flex gap-2 max-w-sm pt-2">
+                    <input type="email" placeholder="Enter your email" required class="flex-1 bg-stone-900 border border-stone-800 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                    <button type="submit" class="bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold px-4 py-2.5 rounded-lg text-sm transition">Sign Up</button>
+                </form>
+            </div>
+
+            <!-- Column 2 -->
+            <div>
+                <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">Customer Support</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Track Order</a></li>
+                    <li><a href="#" class="hover:text-white transition">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white transition">Refunds & Returns</a></li>
+                    <li><a href="#" class="hover:text-white transition">FAQs</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div>
+                <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">About Us</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Our Ingredients</a></li>
+                    <li><a href="#" class="hover:text-white transition">Nutritional Info</a></li>
+                    <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                    <li><a href="#" class="hover:text-white transition">Franchise Info</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright Info -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-stone-900 text-center text-xs text-stone-600 flex flex-col sm:flex-row justify-between gap-4">
+            <p>&copy; 2026 CraveDash Burger Co. All rights reserved.</p>
+            <div class="flex justify-center gap-4">
+                <a href="#" class="hover:underline">Privacy Policy</a>
+                <a href="#" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
