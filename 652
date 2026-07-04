@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasty Bites - Indian Fast Food</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#fff8f0;
+    color:#333;
+}
+
+header{
+    background:#ff6b00;
+    color:white;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    font-size:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+.hero{
+    height:80vh;
+    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+    url("https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1400&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero h2{
+    font-size:50px;
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:20px;
+}
+
+.btn{
+    display:inline-block;
+    background:#ff6b00;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:5px;
+    margin:10px;
+    font-weight:bold;
+}
+
+section{
+    padding:50px;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#ff6b00;
+}
+
+.menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    box-shadow:0 5px 10px rgba(0,0,0,.1);
+    overflow:hidden;
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:10px;
+}
+
+.card p{
+    padding:0 10px 15px;
+}
+
+.special{
+    background:#ffe6cc;
+    text-align:center;
+    border-radius:10px;
+    padding:30px;
+}
+
+.review{
+    background:white;
+    padding:20px;
+    margin:10px 0;
+    border-left:5px solid #ff6b00;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🍔 Tasty Bites</h1>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Menu</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<h2>Authentic Indian Fast Food</h2>
+<p>Fresh • Tasty • Hygienic • Affordable</p>
+
+<a href="#" class="btn">Order Now</a>
+<a href="#" class="btn">View Menu</a>
+
+</div>
+</section>
+
+<section>
+
+<h2>Our Special Menu</h2>
+
+<div class="menu">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80">
+<h3>Veg Burger</h3>
+<p>₹99</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80">
+<h3>Sandwich</h3>
+<p>₹80</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=600&q=80">
+<h3>French Fries</h3>
+<p>₹70</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80">
+<h3>Cheese Pizza</h3>
+<p>₹199</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Today's Special</h2>
+
+<div class="special">
+
+<h3>Cheese Paneer Burger Combo</h3>
+
+<p>Burger + Fries + Cold Drink</p>
+
+<h1>Only ₹199</h1>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Customer Reviews</h2>
+
+<div class="review">
+⭐⭐⭐⭐⭐ Amazing taste and quick service.
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐ Best fast food stall in town!
+</div>
+
+</section>
+
+<section>
+
+<h2>Visit Us</h2>
+
+<p style="text-align:center;">
+📍 Your City, India<br><br>
+
+📞 +91 XXXXX XXXXX<br><br>
+
+🕒 Open Daily: 11 AM – 11 PM
+</p>
+
+</section>
+
+<footer>
+
+<h3>Tasty Bites</h3>
+
+<p>© 2026 All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>
