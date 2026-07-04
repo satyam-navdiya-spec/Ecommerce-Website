@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Crunch Box | Fast Food Stall</title>
+    <style>
+        /* --- DESIGN SYSTEM & RESETS --- */
+        :root {
+            --primary: #FF4500;    /* Bright Orange/Red */
+            --secondary: #FFB703;  /* Warm Yellow */
+            --dark: #1A1A1A;       /* Deep Charcoal */
+            --light: #F8F9FA;      /* Off-White */
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background-color: var(--dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .logo span { color: var(--white); }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--secondary); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 1rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #E0E0E0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.2s, background 0.3s;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            margin-right: 1rem;
+        }
+        .btn-primary:hover { background-color: #E03E00; transform: translateY(-2px); }
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        .btn-secondary:hover { background-color: #E5A300; transform: translateY(-2px); }
+
+        /* --- FEATURES SECTION --- */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .feature-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary);
+        }
+        .feature-card h3 { margin-bottom: 0.5rem; color: var(--dark); }
+
+        /* --- MENU SECTION --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 0.5rem auto 0;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .menu-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .menu-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .menu-info { padding: 1.5rem; }
+        .menu-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* --- INFO / LOCATION SECTION --- */
+        .info-section {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 4rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 4rem;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .info-box h3 { color: var(--secondary); margin-bottom: 1rem; }
+
+        /* --- REVIEWS --- */
+        .reviews { text-align: center; margin-bottom: 4rem; }
+        .review-card {
+            background: var(--white);
+            max-width: 600px;
+            margin: 1.5rem auto;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            font-style: italic;
+        }
+        .review-author {
+            display: block;
+            margin-top: 1rem;
+            font-style: normal;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--dark);
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* --- RESPONSIVE FIXES --- */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.2rem; }
+            .btn { width: 100%; margin-bottom: 1rem; }
+            .btn-primary { margin-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">🍟 The Crunch<span>Box</span></div>
+            <div class="nav-links">
+                <a href="#menu">Menu</a>
+                <a href="#about">Find Us</a>
+                <a href="#order" class="btn-secondary" style="padding: 0.4rem 1rem; border-radius: 4px;">Order Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="container">
+            <h1>Hot. Fresh. Fast.</h1>
+            <p>Your ultimate street-food fix, served up in minutes.</p>
+            <a href="#menu" class="btn btn-primary">📜 View Menu</a>
+            <a href="#order" class="btn btn-secondary">🚀 Order Pickup</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- FEATURES -->
+        <section class="features">
+            <div class="feature-card">
+                <h3>⚡ Zero Wait Time</h3>
+                <p>Order ahead online and your food is ready the second you arrive.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🥬 Fresh Ingredients</h3>
+                <p>We source local, crisp ingredients and prep them daily.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💰 Great Value</h3>
+                <p>Authentic, mouth-watering street flavors at unbeatable prices.</p>
+            </div>
+        </section>
+
+        <!-- MENU SECTION -->
+        <section id="menu">
+            <h2 class="section-title">What's Hot Right Now?</h2>
+            <div class="menu-grid">
+                
+                <!-- Item 1 -->
+                <div class="menu-item">
+                    <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="menu-info">
+                        <h3>The Rebel Burger</h3>
+                        <p>Crispy chicken breast, spicy homemade mayo, tangy pickles, and shredded lettuce on a toasted bun.</p>
+                        <div class="menu-meta">
+                            <span class="price">$7.49</span>
+                            <a href="#order" class="btn btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.9rem;">Add +</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-item">
+                    <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="menu-info">
+                        <h3>Loaded Fire Fries</h3>
+                        <p>Golden, crispy fries drenched in melted liquid cheddar, signature secret sauce, and topped with fresh green onions.</p>
+                        <div class="menu-meta">
+                            <span class="price">$4.99</span>
+                            <a href="#order" class="btn btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.9rem;">Add +</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="menu-item">
+                    <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="menu-info">
+                        <h3>The Choco-Bomb Shake</h3>
+                        <p>Ultra-thick chocolate milkshake topped with fresh brownie bites, whipped cream, and chocolate fudge drizzle.</p>
+                        <div class="menu-meta">
+                            <span class="price">$4.59</span>
+                            <a href="#order" class="btn btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.9rem;">Add +</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- LOCATION & HOURS -->
+        <section id="about" class="info-section">
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>📍 Swing By The Stall</h3>
+                    <p>The Corner Lot, 5th & Pine Street<br>(Right opposite the Metro Station main exit)</p>
+                </div>
+                <div class="info-box">
+                    <h3>🕒 Hours of Operation</h3>
+                    <p><strong>Sun – Thu:</strong> 11:00 AM – 11:00 PM<br>
+                    <strong>Fri & Sat:</strong> 11:00 AM – 2:00 AM <small style="color:var(--secondary);">(Late-night fixes!)</small></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS -->
+        <section class="reviews">
+            <h2 class="section-title">What the Neighborhood Says</h2>
+            <div class="review-card">
+                "The Rebel Burger is elite. I don't know what they put in that spicy mayo, but I'm officially addicted. Best food truck/stall experience in town!"
+                <span class="review-author">— Jordan K. ★★★★★</span>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section id="order" style="text-align: center; padding: 2rem 0;">
+            <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Hungry? Skip the Line!</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">Customize your meal now and pick it up hot at the window.</p>
+            <a href="#" class="btn btn-primary" style="font-size: 1.3rem; padding: 1rem 3rem;">🛒 Start Your Order</a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 The Crunch Box Stall. Built for fast hunger solutions.</p>
+    </footer>
+
+</body>
+</html>
