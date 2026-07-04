@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sizzle Shack | Fast. Fresh. Flame-Grilled.</title>
+    <style>
+        /* --- RESET & VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-dark: #0a1128;
+            --card-bg: #1c2541;
+            --text-light: #f4f5f7;
+            --neon-cyan: #00f5d4;
+            --accent-orange: #ff5400;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: rgba(10, 17, 40, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(0, 245, 212, 0.2);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--neon-cyan);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul a:hover {
+            color: var(--neon-cyan);
+            transition: 0.3s;
+        }
+
+        .cta-btn {
+            background-color: var(--neon-cyan);
+            color: var(--bg-dark);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--neon-cyan);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 180px 8% 100px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(10,17,40,0.6) 0%, rgba(10,17,40,1) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #a0aab2;
+            margin-bottom: 30px;
+        }
+
+        /* --- PROMO BANNER --- */
+        .promo-banner {
+            background: linear-gradient(90deg, #ff5400, #ff0055);
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 84, 0, 0.3);
+        }
+
+        .promo-banner code {
+            background: rgba(0,0,0,0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #fff;
+        }
+
+        /* --- MENU SECTION --- */
+        .menu-section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--neon-cyan);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-cyan);
+        }
+
+        .menu-img-placeholder {
+            height: 200px;
+            background-color: #253053;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .menu-info {
+            padding: 20px;
+        }
+
+        .menu-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .menu-info p {
+            color: #a0aab2;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            height: 45px;
+            overflow: hidden;
+        }
+
+        .menu-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+        }
+
+        /* --- FEATURES SECTION --- */
+        .features {
+            background-color: #060b1a;
+            padding: 60px 8%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+        }
+
+        .feature-box h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 10px;
+        }
+
+        /* --- INFO & FOOTER --- */
+        .info-section {
+            padding: 80px 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            background-color: var(--bg-dark);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--neon-cyan);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px 0 0 6px;
+            background-color: var(--card-bg);
+            color: #fff;
+            outline: none;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .newsletter-form button {
+            background-color: var(--neon-cyan);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 6px 6px 0;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #050814;
+            color: #626970;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            nav { display: none; } /* Simplified for code size; typically uses a burger menu */
+            .hero h1 { font-size: 2.5rem; }
+            .info-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="logo">🍔 THE SIZZLE<span>SHACK</span></div>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#find-us">Hours & Location</a></li>
+            </ul>
+        </nav>
+        <a href="#menu" class="cta-btn">Order Now</a>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Fast. Fresh. <span>Flame-Grilled.</span></h1>
+        <p>Craving satisfied in 3, 2, 1... Hand-crafted burgers and crispy sides made to order.</p>
+        
+        <div class="promo-banner">
+            🔥 Limited Time Offer: Free Garlic Parm Fries with any Signature Burger. Code: <code>CRUNCH26</code>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="features" id="why-us">
+        <div class="feature-box">
+            <h3>⚡ 100% Fresh</h3>
+            <p>We never use frozen beef patties. Every bite is fresh and made to order.</p>
+        </div>
+        <div class="feature-box">
+            <h3>🚀 Lightning Fast</h3>
+            <p>From our hot grill straight to your doorstep in under 30 minutes.</p>
+        </div>
+        <div class="feature-box">
+            <h3>🌙 Late Night Heroes</h3>
+            <p>Whether it's noon or 2 AM, we are here to cure those midnight cravings.</p>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">Our Headliners</h2>
+        <div class="menu-grid">
+            
+            <!-- Item 1 -->
+            <div class="menu-card">
+                <div class="menu-img-placeholder">🍔</div>
+                <div class="menu-info">
+                    <h3>The Shack Stack</h3>
+                    <p>Double smash patty, secret shack sauce, melty cheddar, brioche bun.</p>
+                    <div class="menu-footer">
+                        <span class="price">$8.99</span>
+                        <a href="#" class="cta-btn" style="padding: 6px 15px; font-size: 0.9rem;">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="menu-card">
+                <div class="menu-img-placeholder">🍗</div>
+                <div class="menu-info">
+                    <h3>Blazin' Buffalo Box</h3>
+                    <p>4 crispy hand-breaded tenders tossed in Nashville hot sauce with ranch.</p>
+                    <div class="menu-footer">
+                        <span class="price">$9.59</span>
+                        <a href="#" class="cta-btn" style="padding: 6px 15px; font-size: 0.9rem;">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="menu-card">
+                <div class="menu-img-placeholder">🍟</div>
+                <div class="menu-info">
+                    <h3>Loaded Truffle Fries</h3>
+                    <p>Golden-cut fries smothered in truffle oil, parmesan, and chives.</p>
+                    <div class="menu-footer">
+                        <span class="price">$5.49</span>
+                        <a href="#" class="cta-btn" style="padding: 6px 15px; font-size: 0.9rem;">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="menu-card">
+                <div class="menu-img-placeholder">🥤</div>
+                <div class="menu-info">
+                    <h3>The Monster Shake</h3>
+                    <p>Thick vanilla bean shake blended with crushed Oreos and a whole brownie.</p>
+                    <div class="menu-footer">
+                        <span class="price">$6.29</span>
+                        <a href="#" class="cta-btn" style="padding: 6px 15px; font-size: 0.9rem;">Add</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INFO & FOOTER SECTIONS -->
+    <section class="info-section" id="find-us">
+        <div class="info-card">
+            <h3>⏰ Hours & Location</h3>
+            <p><strong>123 Flavor Avenue</strong>, Downtown Food District</p>
+            <p style="margin-top: 10px;">Sun - Thu: 11:00 AM – Midnight</p>
+            <p>Fri - Sat: 11:00 AM – 3:00 AM</p>
+        </div>
+        
+        <div class="info-card">
+            <h3>📩 Join the Squad</h3>
+            <p>Get 15% off your next meal, exclusive coupons, and secret menu drops.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Welcome to the Squad! Check your email for your 15% off code.');">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Join</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 The Sizzle Shack Inc. | Privacy Policy | Terms of Service
+    </footer>
+
+</body>
+</html>
