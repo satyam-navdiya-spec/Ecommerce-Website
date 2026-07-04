@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sizzle Shack | Fast & Fresh Fast Food</title>
+    <style>
+        :root {
+            --primary: #ff4757;
+            --secondary: #ffa502;
+            --dark: #2f3542;
+            --light: #f1f2f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 60vh;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #e84118;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background-color: #eccc68;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Menu Highlights Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .menu-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .menu-info {
+            padding: 1.5rem;
+        }
+
+        .menu-title-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .menu-price {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .menu-desc {
+            color: #747d8c;
+            font-size: 0.95rem;
+        }
+
+        /* Why Us Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            background-color: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .feature-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* Info Section (Hours & Locations) */
+        .info-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .info-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .info-card h3 {
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            color: #a4b0be;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">The Sizzle <span>Shack</span></div>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#why-us">About Us</a>
+            <a href="#locations">Locations</a>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h1>Craving? We're Already Cooking.</h1>
+        <p>Skip the wait. Get your favorites delivered hot to your doorstep, or swing by for a lightning-fast pickup.</p>
+        <div class="btn-group">
+            <a href="#" class="btn btn-primary">🚀 Order Now</a>
+            <a href="#menu" class="btn btn-secondary">📜 View Menu</a>
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <!-- Menu Section -->
+        <section id="menu">
+            <h2 class="section-title">Today's Top Headliners</h2>
+            <div class="menu-grid">
+                
+                <!-- Item 1 -->
+                <div class="menu-item">
+                    <img class="menu-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="The Classic Smash Burger">
+                    <div class="menu-info">
+                        <div class="menu-title-price">
+                            <span class="menu-title">The Classic Smash</span>
+                            <span class="menu-price">$7.99</span>
+                        </div>
+                        <p class="menu-desc">100% Angus beef, melted cheddar, pickles, onions, and house burger sauce on a toasted bun.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-item">
+                    <img class="menu-img" src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=500&q=80" alt="The Monster Crunch Chicken Sandwich">
+                    <div class="menu-info">
+                        <div class="menu-title-price">
+                            <span class="menu-title">The Monster Crunch</span>
+                            <span class="menu-price">$8.99</span>
+                        </div>
+                        <p class="menu-desc">Double crispy fried chicken breast, spicy pepper jack cheese, and our secret Shack Sauce.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="menu-item">
+                    <img class="menu-img" src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80" alt="Loaded Lava Fries">
+                    <div class="menu-info">
+                        <div class="menu-title-price">
+                            <span class="menu-title">Loaded Lava Fries</span>
+                            <span class="menu-price">$5.49</span>
+                        </div>
+                        <p class="menu-desc">Golden crisp fries smothered in warm cheese sauce, spicy jalapeños, and crunchy real bacon bits.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="why-us">
+            <h2 class="section-title">Why The Sizzle Shack?</h2>
+            <div class="features">
+                <div class="feature-box">
+                    <h3>⚡ Lightning Fast</h3>
+                    <p>From our custom hot grills straight to your hands in under 10 minutes.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>🌱 Fresh, Never Frozen</h3>
+                    <p>We source high-quality ingredients daily from local farms for peak flavor.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>🧀 Extra Cheese Standard</h3>
+                    <p>Because life is entirely too short to eat dry, boring burgers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info / Location Section -->
+        <section id="locations" class="info-section">
+            <div class="info-card">
+                <h3>📍 Find Your Nearest Shack</h3>
+                <ul>
+                    <li><strong>Downtown:</strong> 123 Main Street <br> 📞 (555) 019-2834</li>
+                    <li><strong>The Hub:</strong> 456 University Ave <br> 📞 (555) 014-5678</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>🕒 Hours of Operation</h3>
+                <ul>
+                    <li><strong>Monday – Thursday:</strong> 10:00 AM – Midnight</li>
+                    <li><strong>Friday – Sunday:</strong> 10:00 AM – 3:00 AM</li>
+                    <li><em style="color: var(--primary);">Late night cravings covered!</em></li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 The Sizzle Shack Inc. All rights reserved.</p>
+        <div class="footer-links" style="margin-top: 0.5rem;">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Contact Support</a>
+        </div>
+    </footer>
+
+</body>
+</html>
+
