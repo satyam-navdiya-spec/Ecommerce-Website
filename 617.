@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craving Co. | Fast Fuel for Your Cravings</title>
+    <style>
+        /* --- RESET & VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        :root {
+            --primary: #ff3838;
+            --primary-hover: #d62525;
+            --secondary: #ffb300;
+            --dark: #1e1e24;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            background-color: var(--dark);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .logo span { color: var(--primary); }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--secondary); }
+        .nav-btn {
+            background-color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+        }
+        .nav-btn:hover { background-color: var(--primary-hover); color: #fff; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 1rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        .btn-main {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 30px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(255, 56, 56, 0.4);
+            transition: 0.3s;
+        }
+        .btn-main:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+        .promo-banner {
+            margin-top: 2rem;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.5rem 1.5rem;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+
+        /* --- ORDER METHOD --- */
+        .order-methods {
+            max-width: 1000px;
+            margin: -40px auto 3rem auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+        .method-card {
+            text-align: center;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .method-card:hover { border-color: var(--secondary); }
+        .method-card h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
+        .method-card p { color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem; }
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid var(--dark);
+            color: var(--dark);
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .btn-outline:hover { background: var(--dark); color: #fff; }
+
+        /* --- MENU SECTION --- */
+        .section-padding { padding: 4rem 5%; }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+        .section-title span { color: var(--primary); }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .menu-item {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .menu-item:hover { transform: translateY(-5px); }
+        .menu-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .menu-info { padding: 1.5rem; }
+        .menu-info h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .menu-info p { color: var(--gray); font-size: 0.9rem; min-height: 50px; }
+        .menu-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        .price { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
+        .btn-add {
+            background: var(--secondary);
+            color: var(--dark);
+            border: none;
+            padding: 0.5rem 1rem;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* --- FEATURES SECTION --- */
+        .features { background-color: var(--dark); color: #fff; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .feature-card h3 { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--secondary); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #111;
+            color: #aaa;
+            padding: 4rem 5% 2rem 5%;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .footer-col h4 { color: #fff; margin-bottom: 1.2rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 0.6rem; }
+        .footer-col ul li a { color: #aaa; text-decoration: none; }
+        .footer-col ul li a:hover { color: #fff; }
+        
+        .newsletter input {
+            padding: 0.6rem;
+            width: 70%;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+        .newsletter button {
+            padding: 0.6rem;
+            width: 28%;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #222;
+            padding-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            nav { display: none; } /* Simplified for desktop preview */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">Craving<span>Co.</span></div>
+        <nav>
+            <a href="#">Menu</a>
+            <a href="#">Find a Store</a>
+            <a href="#" class="nav-btn">Order Now</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Satisfy Your Midnight Cravings. Fast.</h1>
+        <p>The juiciest patties, the crispiest fries, and sauces made from scratch. Delivered to your doorstep in under 30 minutes.</p>
+        <a href="#" class="btn-main">Start Your Order</a>
+        <div class="promo-banner">⚡ Flash Deal: Use code FASTFOOD26 for 20% off your first app order!</div>
+    </section>
+
+    <!-- ORDER METHOD -->
+    <section class="order-methods">
+        <div class="method-card">
+            <h3>🚗 Drive-Thru</h3>
+            <p>Select your nearest window window.</p>
+            <a href="#" class="btn-outline">Select Location</a>
+        </div>
+        <div class="method-card">
+            <h3>🛵 Delivery</h3>
+            <p>Straight to your door, piping hot.</p>
+            <a href="#" class="btn-outline">Enter Address</a>
+        </div>
+        <div class="method-card">
+            <h3>🛍️ Pickup</h3>
+            <p>Skip the line, grab & go seamlessly.</p>
+            <a href="#" class="btn-outline">Order Ahead</a>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section class="section-padding">
+        <h2 class="section-title">Our <span>Fan Favorites</span></h2>
+        <div class="menu-grid">
+            
+            <!-- Item 1 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=500" alt="Burger" class="menu-img">
+                <div class="menu-info">
+                    <h3>The Monster Bacon Double</h3>
+                    <p>Two smashed Angus beef patties, crispy smoked bacon, cheddar, and our secret Crave Sauce.</p>
+                    <div class="menu-footer">
+                        <span class="price">$8.99</span>
+                        <button class="btn-add">+ Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=500" alt="Fries" class="menu-img">
+                <div class="menu-info">
+                    <h3>Volcano Loaded Fries</h3>
+                    <p>Skin-on fries drenched in spicy cheese sauce, jalapenos, and grilled onions.</p>
+                    <div class="menu-footer">
+                        <span class="price">$5.49</span>
+                        <button class="btn-add">+ Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=500" alt="Chicken" class="menu-img">
+                <div class="menu-info">
+                    <h3>Honey Butter Chicken</h3>
+                    <p>Crispy fried chicken breast dipped in sweet honey butter glaze on a toasted brioche bun.</p>
+                    <div class="menu-footer">
+                        <span class="price">$7.99</span>
+                        <button class="btn-add">+ Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="section-padding features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>100% Fresh, Never Frozen</h3>
+                <p>Our beef is sourced locally from registered farms and prepped daily by our chefs.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Lightning Fast Delivery</h3>
+                <p>If your food isn't knocking at your door in 30 minutes, it's absolutely free.</p>
+            </div>
+            <div class="feature-card">
+                <h3>The Late Night Heroes</h3>
+                <p>Craving at 3 AM? Don't stress. Our kitchens are firing hot until 4 AM daily.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Menus</h4>
+                <ul>
+                    <li><a href="#">Burgers</a></li>
+                    <li><a href="#">Chicken</a></li>
+                    <li><a href="#">Fries & Sides</a></li>
+                    <li><a href="#">Shakes & Drinks</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col" style="grid-column: span 2;">
+                <h4>Stay Updated</h4>
+                <p style="margin-bottom: 1rem; font-size: 0.9rem;">Enter your email for secret menu drops and coupons.</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Your Email Address">
+                    <button>Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Craving Co. Fast Food Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
