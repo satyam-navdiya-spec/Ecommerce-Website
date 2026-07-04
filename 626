@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CravingCo. | Smashed Patties & Golden Fries</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-amber-50 text-gray-800">
+
+    <!-- 1. NAVIGATION BAR -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="text-3xl font-extrabold text-orange-600 tracking-tight">
+                Craving<span class="text-red-600">Co.</span>
+            </div>
+            <!-- Nav Links -->
+            <nav class="hidden md:flex space-x-8 font-semibold text-gray-600">
+                <a href="#" class="hover:text-orange-600 transition">Menu</a>
+                <a href="#" class="hover:text-orange-600 transition">Offers</a>
+                <a href="#" class="hover:text-orange-600 transition">Track Order</a>
+                <a href="#" class="hover:text-orange-600 transition">About Us</a>
+            </nav>
+            <!-- CTA & Cart -->
+            <div class="flex items-center space-x-4">
+                <button class="relative p-2 text-gray-600 hover:text-orange-600 transition">
+                    🛒 <span class="absolute top-0 right-0 bg-red-600 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">2</span>
+                </button>
+                <button class="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-full font-bold shadow-md transition">
+                    Order Now
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 grid md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-6">
+            <span class="bg-orange-100 text-orange-800 text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">🔥 Fast & Fresh</span>
+            <h1 class="text-5xl md:text-6xl font-black text-gray-900 leading-tight">
+                Smashed Patties. <br>
+                <span class="text-orange-600">Golden Fries.</span> <br>
+                Zero Regrets.
+            </h1>
+            <p class="text-lg text-gray-600 max-w-md">
+                Get your favorite burgers, crispy sides, and thick shakes delivered to your doorstep in under 30 minutes.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition text-center">
+                    Order Delivery
+                </button>
+                <button class="border-2 border-gray-300 hover:border-gray-400 bg-white text-gray-700 font-bold px-8 py-4 rounded-xl transition text-center">
+                    Find a Location
+                </button>
+            </div>
+        </div>
+        <!-- Hero Image (Using placeholders) -->
+        <div class="relative flex justify-center">
+            <div class="w-80 h-80 md:w-[450px] md:h-[450px] bg-orange-400 rounded-full absolute -z-10 blur-2xl opacity-30 animate-pulse"></div>
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Delicious Burger" class="rounded-3xl shadow-2xl object-cover w-full max-w-md transform hover:scale-105 transition duration-300">
+        </div>
+    </section>
+
+    <!-- 3. QUICK CATEGORIES -->
+    <section class="bg-white py-10 shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-xl font-bold text-gray-500 uppercase tracking-widest mb-6">What are you craving?</h3>
+            <div class="flex flex-wrap justify-center gap-6 md:gap-12">
+                <!-- Category -->
+                <div class="flex flex-col items-center space-y-2 cursor-pointer group">
+                    <div class="w-16 h-16 bg-amber-100 group-hover:bg-orange-500 rounded-full flex items-center justify-center text-3xl shadow-sm transition">🍔</div>
+                    <span class="font-bold text-gray-700 group-hover:text-orange-600 transition">Burgers</span>
+                </div>
+                <!-- Category -->
+                <div class="flex flex-col items-center space-y-2 cursor-pointer group">
+                    <div class="w-16 h-16 bg-amber-100 group-hover:bg-orange-500 rounded-full flex items-center justify-center text-3xl shadow-sm transition">🍗</div>
+                    <span class="font-bold text-gray-700 group-hover:text-orange-600 transition">Chicken</span>
+                </div>
+                <!-- Category -->
+                <div class="flex flex-col items-center space-y-2 cursor-pointer group">
+                    <div class="w-16 h-16 bg-amber-100 group-hover:bg-orange-500 rounded-full flex items-center justify-center text-3xl shadow-sm transition">🍟</div>
+                    <span class="font-bold text-gray-700 group-hover:text-orange-600 transition">Sides</span>
+                </div>
+                <!-- Category -->
+                <div class="flex flex-col items-center space-y-2 cursor-pointer group">
+                    <div class="w-16 h-16 bg-amber-100 group-hover:bg-orange-500 rounded-full flex items-center justify-center text-3xl shadow-sm transition">🥤</div>
+                    <span class="font-bold text-gray-700 group-hover:text-orange-600 transition">Drinks</span>
+                </div>
+                <!-- Category -->
+                <div class="flex flex-col items-center space-y-2 cursor-pointer group">
+                    <div class="w-16 h-16 bg-amber-100 group-hover:bg-orange-500 rounded-full flex items-center justify-center text-3xl shadow-sm transition">🍦</div>
+                    <span class="font-bold text-gray-700 group-hover:text-orange-600 transition">Desserts</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. BEST SELLERS -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex justify-between items-end mb-10">
+            <div>
+                <span class="text-orange-600 font-bold uppercase tracking-wider">Fan Favorites</span>
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-1">Our Best Sellers</h2>
+            </div>
+            <a href="#" class="text-orange-600 font-bold hover:underline hidden sm:block">View Full Menu &rarr;</a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Item 1 -->
+            <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80" alt="Burger" class="rounded-2xl h-48 w-full object-cover mb-4">
+                <h4 class="text-xl font-bold text-gray-900 mb-1">Monster Crunch Burger</h4>
+                <p class="text-gray-500 text-sm mb-4">Crispy chicken breast, spicy mayo, pickles, and shredded lettuce.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-2xl font-black text-gray-900">$8.99</span>
+                    <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold px-4 py-2 rounded-xl transition shadow-md">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=400&q=80" alt="Fries" class="rounded-2xl h-48 w-full object-cover mb-4">
+                <h4 class="text-xl font-bold text-gray-900 mb-1">Loaded Truffle Fries</h4>
+                <p class="text-gray-500 text-sm mb-4">Golden fries smothered in rich truffle oil, parmesan, and fresh chives.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-2xl font-black text-gray-900">$5.49</span>
+                    <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold px-4 py-2 rounded-xl transition shadow-md">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+                <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=400&q=80" alt="Shake" class="rounded-2xl h-48 w-full object-cover mb-4">
+                <h4 class="text-xl font-bold text-gray-900 mb-1">Caramel Pretzel Shake</h4>
+                <p class="text-gray-500 text-sm mb-4">Thick vanilla soft-serve blended with sweet caramel and salty pretzels.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-2xl font-black text-gray-900">$4.99</span>
+                    <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold px-4 py-2 rounded-xl transition shadow-md">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-12 mt-12 border-t-4 border-orange-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+            <div>
+                <div class="text-2xl font-extrabold text-white mb-4">Craving<span class="text-orange-500">Co.</span></div>
+                <p class="text-sm">Fresh, hot, and insanely delicious fast food delivered straight to your comfort zone.</p>
+            </div>
+            <div>
+                <h5 class="text-white font-bold mb-4">Quick Links</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-white transition">Franchise Opportunities</a></li>
+                    <li><a href="#" class="hover:text-white transition">Contact Support</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold mb-4">Join the Crunch Club</h5>
+                <p class="text-sm mb-4">Subscribe for exclusive weekly discounts and hidden menu drops.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your email" class="bg-gray-800 text-white px-4 py-2 rounded-l-xl focus:outline-none w-full border border-gray-700">
+                    <button class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-r-xl font-bold transition">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs mt-10 pt-6 border-t border-gray-800">
+            &copy; 2026 CravingCo. All rights reserved. Built with passion and serious hunger.
+        </div>
+    </footer>
+
+</body>
+</html>
