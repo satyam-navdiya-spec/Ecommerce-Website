@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor | Culinary Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* === BASE STYLES === */
+        :root {
+            --primary-color: #ff4757;
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --card-bg: #1e1e1e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* Hide the default cursor for the custom effect */
+            cursor: none !important; 
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        /* === CUSTOM CURSOR === */
+        .cursor {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+
+        .cursor-follower {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9998;
+            transition: width 0.3s, height 0.3s, background-color 0.3s, border 0.3s;
+        }
+
+        /* Active state for cursor when hovering over links/buttons */
+        .cursor-follower.active {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 71, 87, 0.1);
+            border: 1px solid rgba(255, 71, 87, 0.5);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 71, 87, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+        }
+
+        .fade-in {
+            animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* === NAVBAR === */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #aaaaaa;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.3s, background-color 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            background-color: #e84150;
+        }
+
+        /* === MENU SECTION === */
+        .menu-section {
+            padding: 5rem 5%;
+        }
+
+        .menu-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.4s, box-shadow 0.4s;
+            position: relative;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .menu-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+            background: var(--card-bg);
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            color: #aaaaaa;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="fade-in">
+        <div class="logo">SAVOR.</div>
+        <div class="nav-links">
+            <a href="#" class="interactive">Home</a>
+            <a href="#" class="interactive">Menu</a>
+            <a href="#" class="interactive">About</a>
+            <a href="#" class="interactive">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1 class="fade-in delay-1">Taste the <span>Extraordinary</span></h1>
+        <p class="fade-in delay-2">Experience culinary excellence with locally sourced ingredients, crafted to perfection by world-class chefs.</p>
+        <button class="btn fade-in delay-3 interactive">Book a Table</button>
+    </section>
+
+    <section class="menu-section">
+        <h2 class="menu-title fade-in">Our Signature Dishes</h2>
+        <div class="menu-grid">
+            
+            <div class="menu-card fade-in delay-1 interactive">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Healthy Bowl">
+                <div class="card-content">
+                    <h3>Quinoa Power Bowl</h3>
+                    <p>Fresh greens, roasted chickpeas, avocado, and our house-made tahini dressing.</p>
+                    <div class="price">$16.00</div>
+                </div>
+            </div>
+
+            <div class="menu-card fade-in delay-2 interactive">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Gourmet Burger">
+                <div class="card-content">
+                    <h3>Truffle Wagyu Burger</h3>
+                    <p>Wagyu beef patty, truffle aioli, aged cheddar, and caramelized onions on brioche.</p>
+                    <div class="price">$24.00</div>
+                </div>
+            </div>
+
+            <div class="menu-card fade-in delay-3 interactive">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Pasta">
+                <div class="card-content">
+                    <h3>Spicy Rigatoni</h3>
+                    <p>Handmade pasta tossed in a rich, spicy vodka sauce with fresh basil and parmesan.</p>
+                    <div class="price">$19.00</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        // === CUSTOM CURSOR LOGIC ===
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+
+        // Track mouse movement
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Instantly move the tiny dot
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+
+        // Smoothly animate the follower circle
+        function animateFollower() {
+            // Calculate distance and apply easing for smooth trailing effect
+            followerX += (mouseX - followerX) * 0.15;
+            followerY += (mouseY - followerY) * 0.15;
+            
+            follower.style.left = followerX + 'px';
+            follower.style.top = followerY + 'px';
+            
+            requestAnimationFrame(animateFollower);
+        }
+        animateFollower();
+
+        // === HOVER EFFECTS FOR CURSOR ===
+        // Add 'active' class to cursor when hovering over interactive elements
+        const interactives = document.querySelectorAll('.interactive, a, button');
+        
+        interactives.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                follower.classList.add('active');
+            });
+            el.addEventListener('mouseleave', () => {
+                follower.classList.remove('active');
+            });
+        });
+
+        // === SCROLL ANIMATION OBSERVER ===
+        // Re-triggers the fade-in animation when elements come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.style.opacity = 1; 
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Pause animations initially so they only run when scrolled into view
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            if(el.getBoundingClientRect().top > window.innerHeight) {
+                el.style.animationPlayState = 'paused';
+                el.style.opacity = 0;
+                observer.observe(el);
+            }
+        });
+    </script>
+</body>
+</html>
