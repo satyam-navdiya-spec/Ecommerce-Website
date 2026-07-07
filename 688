@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteSpeed | Premium Fast Food</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #ff4757;
+            --secondary: #ffa502;
+            --dark: #2f3542;
+            --light: #f1f2f6;
+        }
+
+        header {
+            background: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 2rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: #ff2e44;
+            transform: scale(1.05);
+        }
+
+        .menu-section {
+            padding: 5rem 5%;
+            background: var(--light);
+            text-align: center;
+        }
+
+        .menu-section h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 3rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .menu-info h3 {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-info p {
+            color: #747d8c;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .menu-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .order-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .order-btn:hover {
+            background: #ffa502cc;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Bite<span>Speed</span></div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Menu</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Hot Burgers & Crispy Fries</h1>
+        <p>Craving something delicious? Get the freshest, highest quality fast food delivered hot to your doorstep in minutes.</p>
+        <a href="#" class="btn">Order Online Now</a>
+    </section>
+
+    <section class="menu-section">
+        <h2>Our Top Sellers</h2>
+        <div class="menu-grid">
+            
+            <div class="menu-card">
+                <img src="https://unsplash.com" alt="Classic Burger" class="menu-img">
+                <div class="menu-info">
+                    <h3>Classic Cheeseburger</h3>
+                    <p>Juicy beef patty, melted cheddar cheese, fresh lettuce, and our secret sauce.</p>
+                    <div class="menu-footer">
+                        <span class="price">$8.99</span>
+                        <button class="order-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://unsplash.com" alt="Crispy Fries" class="menu-img">
+                <div class="menu-info">
+                    <h3>Loaded Fries</h3>
+                    <p>Golden crispy french fries smothered in warm cheese sauce and jalapeños.</p>
+                    <div class="menu-footer">
+                        <span class="price">$5.49</span>
+                        <button class="order-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://unsplash.com" alt="Pepperoni Pizza" class="menu-img">
+                <div class="menu-info">
+                    <h3>Pepperoni Feast</h3>
+                    <p>Freshly baked crust topped with rich tomato sauce, mozzarella, and spicy pepperoni.</p>
+                    <div class="menu-footer">
+                        <span class="price">$12.99</span>
+                        <button class="order-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 BiteSpeed Fast Food. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
