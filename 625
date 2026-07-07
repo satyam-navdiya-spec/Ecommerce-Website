@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BurgerCraft | Crave the Crunch</title>
+    <style>
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #ff4757;
+            --secondary-color: #ffa502;
+            --dark-color: #2f3542;
+            --light-color: #f1f2f6;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Navigation --- */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #ff2e44;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?q=80&w=1200') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+
+        .hero .btn {
+            background-color: var(--secondary-color);
+            color: #white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .hero .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Features Section --- */
+        .features {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* --- Menu Section --- */
+        .menu-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 65px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 20px;
+        }
+
+        .menu-info h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .menu-info p {
+            color: #747d8c;
+            font-size: 14px;
+            margin-bottom: 15px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .menu-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .order-btn {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .order-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* --- Responsive Style --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 34px; }
+            .hero p { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#">Burger<span>Craft</span></a></div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <a href="#" class="cta-btn">Order Online</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Bite Into Happiness</h1>
+        <p>Handcrafted burgers, crispy fries, and refreshing shakes made fresh to order every single day.</p>
+        <a href="#" class="btn">Explore Menu</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-card">
+            <h3>🔥 Fresh Ingredients</h3>
+            <p>100% pure beef and locally sourced crisp veggies.</p>
+        </div>
+        <div class="feature-card">
+            <h3>⚡ Lightning Fast</h3>
+            <p>Hot, fresh food delivered straight to your door in minutes.</p>
+        </div>
+        <div class="feature-card">
+            <h3>💎 Best Quality</h3>
+            <p>Crafted by culinary experts who care about every bite.</p>
+        </div>
+    </section>
+
+    <!-- Featured Menu Section -->
+    <section class="menu-section">
+        <h2 class="section-title">Our Best Sellers</h2>
+        <div class="menu-grid">
+            
+            <!-- Item 1 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=500" alt="Classic Cheeseburger" class="menu-img">
+                <div class="menu-info">
+                    <h3>Classic Cheeseburger</h3>
+                    <p>Juicy beef patty, melted cheddar, lettuce, tomato, and our secret craft sauce.</p>
+                    <div class="menu-footer">
+                        <span class="price">$8.99</span>
+                        <a href="#" class="order-btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?q=80&w=500" alt="Crispy French Fries" class="menu-img">
+                <div class="menu-info">
+                    <h3>Loaded Animal Fries</h3>
+                    <p>Golden crispy fries smothered in melted cheese, grilled onions, and house sauce.</p>
+                    <div class="menu-footer">
+                        <span class="price">$4.49</span>
+                        <a href="#" class="order-btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=500" alt="Crispy Chicken Burger" class="menu-img">
+                <div class="menu-info">
+                    <h3>Spicy Crunch Chicken</h3>
+                    <p>Crispy buttermilk fried chicken breast, spicy mayo, and crunchy pickles.</p>
+                    <div class="menu-footer">
+                        <span class="price">$9.49</span>
+                        <a href="#" class="order-btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2026 BurgerCraft Fast Food. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
