@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Website Project Proposal | Vidhi Dobariya</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #319795;
+            --text-dark: #2d3748;
+            --bg-light: #f7fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .meta-info {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .meta-item strong {
+            color: var(--secondary-color);
+            display: block;
+        }
+
+        section {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        table, th, td {
+            border: 1px solid #e2e8f0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ebf8ff;
+            color: var(--primary-color);
+        }
+
+        .highlight-box {
+            background-color: #e6fffa;
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Project Proposal: Next-Gen College Website</h1>
+        <p>A Modern, Accessible, and Interactive Digital Campus</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="meta-info">
+            <div class="meta-item">
+                <strong>Prepared By:</strong>
+                Vidhi Dobariya
+            </div>
+            <div class="meta-item">
+                <strong>Target Audience:</strong>
+                Students, Faculty, & Alumni
+            </div>
+            <div class="meta-item">
+                <strong>Date:</strong>
+                July 2026
+            </div>
+            <div class="meta-item">
+                <strong>Status:</strong>
+                Draft Proposal
+            </div>
+        </div>
+
+        <section>
+            <h2>1. Executive Summary</h2>
+            <p>In the digital age, a college website serves as the primary gateway for prospective students, a central hub for current students, and a collaborative network for alumni and faculty. This proposal outlines the plan to design and develop a responsive, high-performance web portal that enhances user engagement and streamlines academic administration.</p>
+            <div class="highlight-box">
+                <strong>Core Vision:</strong> To bridge the gap between physical campus resources and digital accessibility through an intuitive, mobile-first design.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Project Objectives</h2>
+            <ul>
+                <li><strong>Responsive Design:</strong> Ensure seamless navigation across mobile, tablet, and desktop devices.</li>
+                <li><strong>User-Centric Architecture:</strong> Separate portals for Admissions, Academics, Student Life, and Alumni Relations.</li>
+                <li><strong>Dynamic Features:</strong> Integrate a real-time event calendar, interactive campus map, and student notice board.</li>
+                <li><strong>Accessibility:</strong> Follow WCAG 2.1 guidelines to support users with diverse abilities.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Proposed Website Structure</h2>
+            <p>The web application will feature a comprehensive layout split into several key sections:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Module / Page</th>
+                        <th>Key Features & Functionality</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Homepage</strong></td>
+                        <td>Hero banner, latest announcements, virtual tour link, quick links grid.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Academics Portal</strong></td>
+                        <td>Department breakdowns, course catalogs, faculty directories, and curriculum links.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Admissions Hub</strong></td>
+                        <td>Online application forms, eligibility criteria, fee structure calculator.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Student Dashboard</strong></td>
+                        <td>Login portal for viewing attendance, grades, and downloading study materials.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>4. Recommended Tech Stack</h2>
+            <p>To ensure scalability, modern security standards, and smooth performance, the following technologies are proposed:</p>
+            <ul>
+                <li><strong>Frontend:</strong> HTML5, CSS3 (Tailwind CSS/Bootstrap), JavaScript (React.js)</li>
+                <li><strong>Backend:</strong> Node.js with Express Framework</li>
+                <li><strong>Database:</strong> MongoDB or PostgreSQL for robust data management</li>
+                <li><strong>Hosting & Security:</strong> AWS Cloud Hosting with mandatory SSL Certification</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Project Timeline</h2>
+            <p>The estimated duration for completion is <strong>12 weeks</strong>, structured as follows:</p>
+            <ul>
+                <li><strong>Weeks 1-2:</strong> Requirement gathering, UI/UX wireframing, and design sign-off.</li>
+                <li><strong>Weeks 3-6:</strong> Frontend development and responsive layout creation.</li>
+                <li><strong>Weeks 7-9:</strong> Backend integration, database setup, and portal connectivity.</li>
+                <li><strong>Weeks 10-11:</strong> Rigorous testing (QA, cross-browser compatibility, security checks).</li>
+                <li><strong>Week 12:</strong> Final deployment, training sessions, and official launch.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Conclusion</h2>
+            <p>Implementing this modernized college website will significantly elevate the institution's digital brand and offer an unparalleled user experience. I look forward to your valuable feedback and the opportunity to collaborate on bringing this vision to life.</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Website Proposal. Curated by Vidhi Dobariya. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
