@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collage Website Proposal - Ridham Makwana</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm 15mm;
+            @bottom-right {
+                content: counter(page);
+                font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+                font-size: 9pt;
+                color: #718096;
+            }
+            @bottom-left {
+                content: "Collage Website Proposal | Ridham Makwana";
+                font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+                font-size: 9pt;
+                color: #718096;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            color: #2d3748;
+            line-height: 1.6;
+            font-size: 10.5pt;
+            margin: 0;
+            padding: 0;
+            background-color: #f7fafc;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        /* Cover Page / Header Banner */
+        .cover-banner {
+            margin: -40px -40px 30px -40px;
+            padding: 50px 40px;
+            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+            color: #ffffff;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .cover-banner h1 {
+            font-size: 26pt;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .cover-banner .subtitle {
+            font-size: 13pt;
+            color: #ebf8ff;
+            margin: 0 0 25px 0;
+            font-weight: 300;
+        }
+
+        .meta-info {
+            font-size: 10pt;
+            color: #bee3f8;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 15px;
+        }
+
+        .meta-info span {
+            margin-right: 30px;
+            display: inline-block;
+        }
+
+        /* Headings */
+        h2 {
+            font-size: 15pt;
+            color: #1a365d;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3182ce;
+            padding-left: 12px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: 12pt;
+            color: #2c5282;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 14px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background-color: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+            page-break-inside: avoid;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 30px 0;
+            page-break-inside: avoid;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: #2d3748;
+            color: #ffffff;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 14px;
+            font-size: 10pt;
+        }
+
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 9.5pt;
+            color: #4a5568;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7fafc;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .bold {
+            font-weight: bold;
+            color: #1a365d;
+        }
+
+        /* Sign-off */
+        .signature-section {
+            margin-top: 50px;
+            page-break-inside: avoid;
+        }
+
+        .signature-grid {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 40px;
+        }
+
+        .signature-col {
+            flex: 1;
+        }
+
+        .sig-line {
+            border-top: 1px solid #a0aec0;
+            margin-top: 50px;
+            padding-top: 8px;
+            font-size: 9.5pt;
+            color: #718096;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            .cover-banner {
+                margin: -20px -20px 20px -20px;
+                padding: 30px 20px;
+            }
+            .signature-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="cover-banner">
+            <h1>Project Proposal:<br>Custom Collage & Digital Mosaic Platform</h1>
+            <div class="subtitle">A Comprehensive Technical and Implementation Strategy</div>
+            <div class="meta-info">
+                <span><strong>Prepared By:</strong> Ridham Makwana</span>
+                <span><strong>Date:</strong> July 11, 2026</span>
+            </div>
+        </div>
+
+        <h2>1. Executive Summary</h2>
+        <p>In the digital era, visual content curation has transitioned from physical scrapbooks to intelligent dynamic interfaces. This proposal details the development of an advanced, algorithmic, and highly interactive <strong>Collage Website Platform</strong>. The solution bridges artistic freedom with programmatic asset placement, empowering everyday users, visual artists, and enterprise marketing teams to craft premium multi-image layouts seamlessly.</p>
+        
+        <div class="highlight-box">
+            <strong>Core Philosophy:</strong> High-performance, cross-platform fluidity, and context-aware image scaling that guarantees sharp visual presentation regardless of grid density or layout complexity.
+        </div>
+
+        <h2>2. System Architecture & Core Objectives</h2>
+        <p>The proposed platform is structured around three primary architectural drivers: intuitive user experience, client-side rendering speed, and dynamic asset transformation. The production environment will utilize a modern web stack to facilitate immediate asset loading and rendering.</p>
+        
+        <h3>Key Project Objectives:</h3>
+        <ul>
+            <li><strong>Algorithmic Auto-Grid Generation:</strong> Automated scaling and canvas alignment powered by intelligent aspect-ratio detection.</li>
+            <li><strong>Real-Time Dynamic Customization:</strong> Drag-and-drop structural reorganization, smart cropping, customizable borders, and micro-animations.</li>
+            <li><strong>Optimized Asset Export:</strong> High-fidelity multi-format rendering (JPEG, PNG, SVG, PDF) backed by responsive client-side storage configurations.</li>
+        </ul>
+
+        <h2>3. Technical Specifications</h2>
+        <p>To ensure high standards of maintainability and scalability, the following software architecture is proposed:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Component</th>
+                    <th style="width: 70%;">Technologies & Frameworks Selected</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bold">Frontend Core</td>
+                    <td>React.js (v18+) with TypeScript for rigorous type-safety and state predictability.</td>
+                </tr>
+                <tr>
+                    <td class="bold">Canvas Rendering</td>
+                    <td>HTML5 Canvas API integrated with Fabric.js / Konva.js for performant vector and image manipulation.</td>
+                </tr>
+                <tr>
+                    <td class="bold">Styling & UI Components</td>
+                    <td>Tailwind CSS coupled with Framer Motion for premium micro-interactions and transitions.</td>
+                </tr>
+                <tr>
+                    <td class="bold">Backend Architecture</td>
+                    <td>Node.js (Express) ecosystem optimized for fast file processing and asset orchestration.</td>
+                </tr>
+                <tr>
+                    <td class="bold">Storage Solutions</td>
+                    <td>Cloudinary/AWS S3 for optimized CDN delivery and secure, compressed image storage layers.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Scope of Work & Deliverables</h2>
+        <p>The implementation life cycle will progress linearly across distinct implementation milestones to ensure adequate testing and system optimization at each phase:</p>
+        
+        <h3>Milestone 1: Wireframing & Structural Design</h3>
+        <p>Interactive Figma prototyping focused on spatial design, fluid navigation paths, media library organization, and viewport modularity.</p>
+
+        <h3>Milestone 2: Canvas Integration & Canvas Engine Dev</h3>
+        <p>Structuring the layout algorithm. Enabling cross-axis image translation, automated border resolution, padding metrics control, and layer sorting options.</p>
+
+        <h3>Milestone 3: Core Features & Asset Pipelines</h3>
+        <p>Integrating localized cropping engines, multi-tone color filter arrays, metadata injection, and asynchronous multi-file uploads.</p>
+
+        <h2>5. Investment Blueprint & Cost Breakdown</h2>
+        <p>The estimated financial requirements outlined below represent the initial phase from project initialization up to production release and cloud-ready deployment:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Phase Description</th>
+                    <th>Estimated Hours</th>
+                    <th class="text-right">Cost Allocation (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>UX/UI Engineering & Interactive Architecture Prototype</td>
+                    <td>45 Hours</td>
+                    <td class="text-right">$2,250.00</td>
+                </tr>
+                <tr>
+                    <td>Core Canvas Engine Implementation & Algorithm Assembly</td>
+                    <td>80 Hours</td>
+                    <td class="text-right">$5,600.00</td>
+                </tr>
+                <tr>
+                    <td>Backend Systems, CDN Pipeline Setup & API Structuring</td>
+                    <td>50 Hours</td>
+                    <td class="text-right">$3,500.00</td>
+                </tr>
+                <tr>
+                    <td>QA Validation, Multi-Device Profiling & Cross-Platform Refinement</td>
+                    <td>30 Hours</td>
+                    <td class="text-right">$1,800.00</td>
+                </tr>
+                <tr style="background-color: #e2e8f0;">
+                    <td class="bold">Total Estimated Budget</td>
+                    <td class="bold">205 Hours</td>
+                    <td class="text-right bold">$13,150.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>6. Strategic Vision & Conclusion</h2>
+        <p>This proposal outlines a resilient framework optimized for performance, utility, and scalability. By executing this production roadmap under systematic development parameters, the resulting application will set a distinct baseline for automated digital composition tools globally.</p>
+
+        <div class="signature-section">
+            <p>Prepared and submitted for formal evaluation by:</p>
+            <div class="signature-grid">
+                <div class="signature-col">
+                    <div class="sig-line">
+                        <strong>Ridham Makwana</strong><br>
+                        Lead Technical Architect & Solutions Engineer
+                    </div>
+                </div>
+                <div class="signature-col">
+                    <div class="sig-line">
+                        <strong>Authorized Stakeholder / Client</strong><br>
+                        Reviewer Acceptance Signature
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
