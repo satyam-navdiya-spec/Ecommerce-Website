@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collage Website Proposal</title>
+    <style>
+        :root {
+            --primary-bg: #0f172a;
+            --container-bg: #1e293b;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --border-color: #334155;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--primary-bg); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 40px 20px; 
+        }
+
+        .container { 
+            max-width: 850px; 
+            margin: auto; 
+            background: var(--container-bg); 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5); 
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.2em;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1em;
+            margin-top: 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h2 { 
+            color: var(--accent); 
+            border-bottom: 1px solid var(--border-color); 
+            padding-bottom: 8px; 
+            margin-top: 35px;
+            font-size: 1.5em;
+        }
+
+        .header-info { 
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            background: rgba(15, 23, 42, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px; 
+        }
+
+        .header-info p { margin: 0; }
+
+        .feature-list { 
+            list-style-type: none; 
+            padding: 0; 
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .feature-list li::before {
+            content: "▹";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 20px 0; 
+        }
+
+        th, td { 
+            padding: 15px; 
+            text-align: left; 
+            border-bottom: 1px solid var(--border-color); 
+        }
+
+        th { 
+            background-color: var(--primary-bg); 
+            color: var(--accent); 
+            font-weight: 600;
+        }
+
+        .sign-off {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .signature-block {
+            width: 45%;
+            border-top: 1px solid var(--border-color);
+            padding-top: 10px;
+            color: var(--text-muted);
+        }
+
+        .footer { 
+            margin-top: 50px; 
+            text-align: center; 
+            font-size: 0.9em; 
+            color: var(--text-muted); 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Digital Collage Platform</h1>
+        <p class="subtitle">Website Development Proposal</p>
+        
+        <div class="header-info">
+            <p><strong>Date:</strong> July 11, 2026</p>
+            <p><strong>Prepared by:</strong> Sahil & Development Team</p>
+            <p><strong>Project Type:</strong> Web Application</p>
+            <p><strong>Status:</strong> Initial Draft</p>
+        </div>
+
+        <h2>1. Project Overview</h2>
+        <p>This proposal outlines the architecture, features, and timeline for developing a high-performance, web-based digital collage application. The platform will provide users with a seamless, interactive environment to upload media, apply custom layouts, and generate high-resolution exports.</p>
+
+        <h2>2. Core Features & Capabilities</h2>
+        <ul class="feature-list">
+            <li><strong>Intelligent Workspace:</strong> Fluid drag-and-drop interface for precise image placement, scaling, and rotation.</li>
+            <li><strong>Automated Layout Engine:</strong> Smart grid generation that automatically snaps images into aesthetically balanced arrangements.</li>
+            <li><strong>Real-time Processing:</strong> Client-side rendering for filters, masking, and layering without server lag.</li>
+            <li><strong>High-Resolution Export:</strong> Optimization algorithms to render final collages in PNG, JPG, or PDF formats for print or web.</li>
+        </ul>
+
+        <h2>3. Development Timeline</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Phase</th>
+                    <th>Milestone Description</th>
+                    <th>Estimated Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Phase 1</td>
+                    <td>UI/UX Wireframing & Core Database Architecture</td>
+                    <td>2 Weeks</td>
+                </tr>
+                <tr>
+                    <td>Phase 2</td>
+                    <td>Frontend Development (Drag-and-Drop Canvas Engine)</td>
+                    <td>3 Weeks</td>
+                </tr>
+                <tr>
+                    <td>Phase 3</td>
+                    <td>Backend Integration, Cloud Storage & QA Testing</td>
+                    <td>2 Weeks</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Next Steps</h2>
+        <p>Upon review and approval of this framework, our team will initiate the technical architecture phase. We will schedule a kickoff meeting to finalize layout preferences and user-flow requirements before development begins.</p>
+        
+        <div class="sign-off">
+            <div class="signature-block">
+                <p><strong>Sahil</strong></p>
+                <p>Lead Developer / Project Manager</p>
+            </div>
+            <div class="signature-block">
+                <p><strong>Client Approval</strong></p>
+                <p>Date: ________________</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>System Proposal Document &copy; 2026 | Generated for project review.</p>
+        </div>
+    </div>
+</body>
+</html>
