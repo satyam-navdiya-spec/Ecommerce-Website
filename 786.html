@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Website Proposal</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        @page {
+            size: A4;
+            margin: 20mm 18mm;
+            @bottom-right {
+                content: counter(page);
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 9pt;
+                color: #8c9ba5;
+            }
+            @bottom-left {
+                content: "Proposal: Next-Gen College Web Platform";
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 9pt;
+                color: #8c9ba5;
+            }
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        /* Cover Page Styling using negative margins to bleed neatly */
+        .cover {
+            margin: -20mm -18mm 25mm -18mm;
+            padding: 40mm 20mm 30mm 20mm;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #ffffff;
+            text-align: center;
+        }
+        .cover h1 {
+            font-size: 26pt;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+        .cover h2 {
+            font-size: 16pt;
+            margin: 0 0 40px 0;
+            font-weight: 300;
+            color: #e0e6ed;
+        }
+        .cover .meta-box {
+            margin-top: 20mm;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+            display: block;
+        }
+        .cover .meta-item {
+            font-size: 11pt;
+            margin: 5px 0;
+            color: #f8fafc;
+        }
+        .cover .author {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #ffffff;
+            margin-top: 10px;
+        }
+
+        /* Section Headings */
+        h2 {
+            font-size: 14pt;
+            color: #1e3c72;
+            border-left: 5px solid #2a5298;
+            padding-left: 12px;
+            margin-top: 25pt;
+            margin-bottom: 12pt;
+            page-break-after: avoid;
+        }
+        h3 {
+            font-size: 12pt;
+            color: #2c3e50;
+            margin-top: 16pt;
+            margin-bottom: 6pt;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 12pt;
+            text-align: justify;
+        }
+
+        ul {
+            margin-top: 0;
+            margin-bottom: 12pt;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15pt 0;
+            page-break-inside: avoid;
+        }
+        th {
+            background-color: #1e3c72;
+            color: #ffffff;
+            font-weight: 600;
+            text-align: left;
+            padding: 10px 12px;
+            font-size: 10pt;
+            border: 1px solid #1e3c72;
+        }
+        td {
+            padding: 10px 12px;
+            font-size: 10pt;
+            border: 1px solid #e2e8f0;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Callout Box */
+        .callout {
+            background-color: #f1f5f9;
+            border-right: 4px solid #1e3c72;
+            border-left: 4px solid #1e3c72;
+            padding: 15px;
+            margin: 18pt 0;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Highlight Metric */
+        .metric-container {
+            margin: 15pt 0;
+            display: block;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 15px;
+            page-break-inside: avoid;
+        }
+        .metric-title {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+        .metric-value {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #2a5298;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cover Page Section -->
+    <div class="cover">
+        <h1>PROJECT PROPOSAL</h1>
+        <h2>Next-Generation Higher Education Web Platform</h2>
+        <div class="meta-box">
+            <div class="meta-item">Prepared For: University Administration & IT Steering Committee</div>
+            <div class="meta-item">Prepared By:</div>
+            <div class="author">Heet Viradiya</div>
+            <div class="meta-item">Lead Web Consultant & Architect</div>
+            <div class="meta-item">Date: July 11, 2026</div>
+        </div>
+    </div>
+
+    <!-- Executive Summary -->
+    <h2>1. Executive Summary</h2>
+    <p>
+        In the digital age, a higher education institution’s website serves as its primary front door, central communications hub, and key operational driver. The proposed project outlines a comprehensive plan to redesign and implement a next-generation web portal tailored to modern institutional requirements.
+    </p>
+    <p>
+        Under the direction of <strong>Heet Viradiya</strong>, this initiative seeks to transition the college's legacy web infrastructure into an intuitive, accessible, multi-device ecosystem. The primary objectives are to elevate brand identity, maximize prospective student recruitment, and deploy integrated self-service solutions for current student bodies and academic faculty.
+    </p>
+    
+    <div class="callout">
+        <strong>Strategic Vision:</strong> To construct an authoritative, highly secure digital ecosystem that aligns with international accessibility benchmarks (WCAG 2.2) and sets new standards for university portals.
+    </div>
+
+    <!-- Core Objectives -->
+    <h2>2. Project Objectives</h2>
+    <p>
+        The development process overseen by Heet Viradiya will focus on achieving four core qualitative and quantitative pillars:
+    </p>
+    <ul>
+        <li><strong>Unified Brand Narrative:</strong> Streamlining disparate department sites into a cohesive visual design system reflecting academic excellence.</li>
+        <li><strong>Conversion-Driven Architecture:</strong> Re-engineering the prospective student funnel to facilitate simple inquiry, campus tour scheduling, and application submissions.</li>
+        <li><strong>Centralized Portal Integration:</strong> Providing single sign-on (SSO) gateways into existing Learning Management Systems (LMS) and student information systems.</li>
+        <li><strong>Performance & Security:</strong> Ensuring sub-second page rendering, robust uptime, and strict data governance compliant with modern privacy frameworks.</li>
+    </ul>
+
+    <!-- Scope of Work & Features -->
+    <h2>3. Comprehensive Scope of Work</h2>
+    <p>The engineering roadmap encompasses three primary web modules designed to cater to various university stakeholders:</p>
+    
+    <h3>3.1 Public-Facing Institutional Website</h3>
+    <ul>
+        <li>Responsive, multi-tiered architecture optimized for mobile, tablet, and desktop interfaces.</li>
+        <li>Dynamic program discovery engine allowing prospective students to filter degrees by discipline, duration, and career outcomes.</li>
+        <li>Virtual campus tour module featuring interactive geolocation maps and multimedia integrations.</li>
+    </ul>
+
+    <h3>3.2 Secure Student & Faculty Portal</h3>
+    <ul>
+        <li>Personalized dashboards customized dynamically based on user role (Undergraduate, Graduate, Faculty, or Administrator).</li>
+        <li>Centralized notification engine aggregating academic deadlines, financial alerts, and campus announcements.</li>
+        <li>Integrated scheduling interface reflecting real-time class lists, exam schedules, and faculty office hours.</li>
+    </ul>
+
+    <h3>3.3 Content Management System (CMS) Implementation</h3>
+    <ul>
+        <li>Enterprise-grade, headless CMS allowing non-technical department heads to publish updates securely.</li>
+        <li>Granular role-based access controls (RBAC) supporting rigorous approval workflows before publishing content.</li>
+    </ul>
+
+    <!-- Project Timeline -->
+    <h2>4. Phases & Timeline</h2>
+    <p>The project will execute over a structured 24-week implementation window, utilizing an agile framework to ensure iterative feedback and continuous integration.</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Phase</th>
+                <th>Focus Area</th>
+                <th>Key Deliverables</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Phase 1</td>
+                <td>Discovery & Strategy</td>
+                <td>Stakeholder audits, user personas, site architecture maps</td>
+                <td>Weeks 1–4</td>
+            </tr>
+            <tr>
+                <td>Phase 2</td>
+                <td>UI/UX Component Design</td>
+                <td>High-fidelity wireframes, typography design system, prototypes</td>
+                <td>Weeks 5–10</td>
+            </tr>
+            <tr>
+                <td>Phase 3</td>
+                <td>Core Platform Development</td>
+                <td>CMS infrastructure setup, database schema, responsive front-end</td>
+                <td>Weeks 11–18</td>
+            </tr>
+            <tr>
+                <td>Phase 4</td>
+                <td>Integration & Testing</td>
+                <td>LMS API integration, accessibility auditing, load performance tests</td>
+                <td>Weeks 19–22</td>
+            </tr>
+            <tr>
+                <td>Phase 5</td>
+                <td>Deployment & Training</td>
+                <td>Staff onboarding documentation, production launch, post-launch support</td>
+                <td>Weeks 23–24</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Technology Stack -->
+    <h2>5. Technical Architecture & Security</h2>
+    <p>To guarantee longevity, top-tier performance, and elite security parameters, the following modern architecture has been curated for this deployment:</p>
+    <ul>
+        <li><strong>Front-End Architecture:</strong> Next.js (React framework) generating static pages for sub-second speeds alongside server-side rendering for highly dynamic dashboard nodes.</li>
+        <li><strong>Content Framework:</strong> Strapi or Sanity.io CMS deployed over secure cloud server clusters.</li>
+        <li><strong>Hosting Infrastructure:</strong> Multi-region cloud architecture providing fully automated scaling capabilities and continuous DDoS protection.</li>
+        <li><strong>Compliance & Access:</strong> Complete WCAG 2.2 AA alignment, SSL/TLS data transit layer encryption, and OAuth2/SAML multi-factor authentication protocols.</li>
+    </ul>
+
+    <div class="metric-container">
+        <div class="metric-title">Projected Performance Baseline Target</div>
+        <div class="metric-value">99.9% Uptime & &lt;1.2s Page Load Time</div>
+    </div>
+
+    <!-- Budget & Financial Estimates -->
+    <h2>6. Financial Investment Summary</h2>
+    <p>The following estimation details the core capital expenditures required for implementation, deployment, and institutional training:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Description of Services</th>
+                <th>Estimated Cost (USD)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>UI/UX Architecture & Content Strategy Design</td>
+                <td>$15,000</td>
+            </tr>
+            <tr>
+                <td>Front-end Engineering & Headless CMS Implementation</td>
+                <td>$32,000</td>
+            </tr>
+            <tr>
+                <td>Portal API Integration & Single Sign-On Setup</td>
+                <td>$18,000</td>
+            </tr>
+            <tr>
+                <td>Quality Assurance, Accessibility Auditing & Penetration Testing</td>
+                <td>$8,000</td>
+            </tr>
+            <tr>
+                <td>Administrative Staff Training & Final Migration Support</td>
+                <td>$5,000</td>
+            </tr>
+            <tr>
+                <td><strong>Total Projected Investment</strong></td>
+                <td><strong>$78,000</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Conclusion & Next Steps -->
+    <h2>7. Next Steps & Authorization</h2>
+    <p>
+        This proposal outlines a robust, future-proof approach to establishing a premier digital ecosystem for the college. Upon preliminary steering committee approval, the team led by <strong>Heet Viradiya</strong> will deliver a formal master services agreement, followed by kickoff workshops with academic departments.
+    </p>
+    <p>
+        We look forward to partnering with your institution to build a modern web platform that serves your academic community efficiently for years to come.
+    </p>
+
+</body>
+</html>
